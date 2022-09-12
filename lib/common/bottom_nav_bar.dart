@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:ecommerceapp/features/account/screens/account_screen.dart';
+import 'package:ecommerceapp/features/cart/screens/cart_page.dart';
 import 'package:ecommerceapp/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -22,10 +23,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const Center(
       child: Text('Wishlist'),
     ),
-    const Center(
-      child: Text('Cart'),
-    ),
-    AccountScreen()
+    const CartPage(),
+    const AccountScreen()
   ];
 
   @override
