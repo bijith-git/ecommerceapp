@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/common/custom_button.dart';
 import 'package:ecommerceapp/common/custom_textfield.dart';
 import 'package:ecommerceapp/constants/global_variables.dart';
+import 'package:ecommerceapp/features/auth/services/auth_services.dart';
 // import 'package:ecommerceapp/features/auth/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ enum Auth {
 }
 
 class AuthScreen extends StatefulWidget {
+  static const String routeName = '/auth';
   const AuthScreen({Key? key}) : super(key: key);
 
   @override
@@ -17,10 +19,10 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  Auth _auth = Auth.signup;
-  // final _signUpFormKey = GlobalKey<FormState>();
+  Auth _auth = Auth.signin;
+  final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
-  // final AuthService authService = AuthService();
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -31,6 +33,21 @@ class _AuthScreenState extends State<AuthScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+        context: context,
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text);
+  }
+
+  void signInUser() {
+    authService.signInUser(
+        context: context,
+        email: _emailController.text,
+        password: _passwordController.text);
   }
 
   @override
@@ -145,12 +162,18 @@ class _AuthScreenState extends State<AuthScreen> {
                         const SizedBox(
                           height: 25,
                         ),
-                        CustomButton(onTap: () {}, text: "Sign Up"),
+                        CustomButton(
+                            onTap: () {
+                              if (_signInFormKey.currentState!.validate()) {
+                                signInUser();
+                              }
+                            },
+                            text: "Sign Up"),
                       ]),
                 ),
               if (_auth == Auth.signup)
                 Form(
-                  key: _signInFormKey,
+                  key: _signUpFormKey,
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -185,7 +208,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         const SizedBox(
                           height: 25,
                         ),
-                        CustomButton(onTap: () {}, text: "Sign Up"),
+                        CustomButton(
+                            onTap: () {
+                              if (_signUpFormKey.currentState!.validate()) {
+                                signUpUser();
+                              }
+                            },
+                            text: "Sign Up"),
                       ]),
                 )
             ],

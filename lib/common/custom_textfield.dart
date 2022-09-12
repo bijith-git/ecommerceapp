@@ -13,7 +13,6 @@ class CustomTextFeild extends StatelessWidget {
   final bool passwrdTextFeild;
   @override
   Widget build(BuildContext context) {
-    final bool passwrdVisible;
     return TextFormField(
       decoration: InputDecoration(
           hintText: hintText,
@@ -25,7 +24,12 @@ class CustomTextFeild extends StatelessWidget {
               borderSide: const BorderSide(color: Colors.black38))),
       controller: controller,
       obscureText: passwrdTextFeild ? true : false,
-      validator: (value) {},
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Enter your $hintText';
+        }
+        return null;
+      },
     );
   }
 }
