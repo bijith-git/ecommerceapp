@@ -1,5 +1,5 @@
 import 'package:ecommerceapp/features/home/widgets/category.dart';
-import 'package:ecommerceapp/features/home/widgets/search_form.dart';
+import 'package:ecommerceapp/features/home/widgets/special_offer.dart';
 import 'package:ecommerceapp/features/home/widgets/top_collections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -54,36 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Explore',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+            children: const [
+              SpecialOffers(),
+              SizedBox(
+                height: 10,
               ),
-              const Text(
-                "Best Outfit for You",
-                style: TextStyle(fontSize: 18),
+              TopCollection(),
+              SizedBox(
+                height: 10,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
-                child: SearchForm(outlineInputBorder: outlineInputBorder),
-              ),
-              const TopCollection(),
-              const SizedBox(
-                height: 14,
-              ),
-              Catergories(),
-              const SizedBox(
-                height: 16,
-              ),
-              // const NewArrival(),
-              const SizedBox(
-                height: 16,
-              ),
-
-              // const PopularCard()
+              Categories(),
             ],
           ),
         ),

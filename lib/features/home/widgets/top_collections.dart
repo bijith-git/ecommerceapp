@@ -9,9 +9,12 @@ class TopCollection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          "Top Collections",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: const Text(
+            "Top Collections",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+          ),
         ),
         TextButton(
             onPressed: () {},
@@ -19,7 +22,7 @@ class TopCollection extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: GlobalVariables.primaryColor,
-                    fontSize: 19)))
+                    fontSize: 14)))
       ],
     );
   }
