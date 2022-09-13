@@ -12,7 +12,7 @@ class GlobalVariables {
     stops: [0.5, 1.0],
   );
 
-  static const backgroundColor = Color(0xffcdcbd6);
+  static const backgroundColor = Color.fromARGB(197, 255, 255, 255);
   static const textColor = Color.fromARGB(255, 47, 48, 32);
   static const primaryColor = Color(0xffd96846);
   static const secondarybackgroundColor = Color(0xffe8eceb);

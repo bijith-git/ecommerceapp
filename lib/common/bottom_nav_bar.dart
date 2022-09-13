@@ -32,15 +32,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
         body: pages[_active],
         bottomNavigationBar: Container(
-          color: GlobalVariables.backgroundColor,
+          color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              backgroundColor: GlobalVariables.backgroundColor,
+              backgroundColor: Colors.white,
               rippleColor: GlobalVariables.primaryColor,
               hoverColor: GlobalVariables.primaryColor,
               gap: 8,
-              activeColor: GlobalVariables.backgroundColor,
+              activeColor: Colors.white,
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               duration: const Duration(milliseconds: 400),

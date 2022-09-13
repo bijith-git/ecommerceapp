@@ -6,7 +6,7 @@ class Catergories extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  List democategories = [
+  final List democategories = [
     {"icon": "assets/icons/shirt.png", "title": "Shirts", "isSelected": true},
     {
       "icon": "assets/icons/women-dress.png",

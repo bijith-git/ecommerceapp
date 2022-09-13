@@ -4,6 +4,7 @@ import 'package:ecommerceapp/features/auth/screens/auth_screens.dart';
 import 'package:ecommerceapp/features/auth/services/auth_services.dart';
 import 'package:ecommerceapp/providers/user_provider.dart';
 import 'package:ecommerceapp/routes.dart';
+import 'package:ecommerceapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
