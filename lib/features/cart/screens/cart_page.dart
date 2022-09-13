@@ -33,13 +33,13 @@ class _CartPageState extends State<CartPage> {
         ),
         body: Column(
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * .71,
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: 10,
                 itemBuilder: (context, i) {
-                  return CartCards(
+                  return const CartCards(
                     title: 'fossil watch',
                     price: '4888',
                     img:

@@ -1,4 +1,8 @@
+import 'package:ecommerceapp/features/home/widgets/category.dart';
+import 'package:ecommerceapp/features/home/widgets/search_form.dart';
+import 'package:ecommerceapp/features/home/widgets/top_collections.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -12,9 +16,77 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('homeScreen'),
+    const outlineInputBorder = OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        borderSide: BorderSide.none);
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: SvgPicture.asset('assets/icons/menu.svg'),
+          onPressed: () {},
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset('assets/icons/Location.svg'),
+            const SizedBox(
+              width: 16 / 2,
+            ),
+            Text(
+              'Edappal',
+              style: Theme.of(context).textTheme.subtitle2,
+            )
+          ],
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset('assets/icons/Notification.svg'))
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Explore',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+              ),
+              const Text(
+                "Best Outfit for You",
+                style: TextStyle(fontSize: 18),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: SearchForm(outlineInputBorder: outlineInputBorder),
+              ),
+              const TopCollection(),
+              const SizedBox(
+                height: 14,
+              ),
+              Catergories(),
+              const SizedBox(
+                height: 16,
+              ),
+              // const NewArrival(),
+              const SizedBox(
+                height: 16,
+              ),
+
+              // const PopularCard()
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/constants/global_variables.dart';
+import 'package:ecommerceapp/features/account/widgets/account_tiles_listview.dart';
 import 'package:ecommerceapp/features/account/widgets/below_appbar_title.dart';
 import 'package:flutter/material.dart';
 
@@ -86,7 +87,14 @@ class AccountScreen extends StatelessWidget {
       // ),
 
       body: Column(
-        children: [const BelowAppBarTitle()],
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const BelowAppBarTitle(),
+          const SizedBox(
+            height: 60,
+          ),
+          AccountTiles()
+        ],
       ),
     );
   }

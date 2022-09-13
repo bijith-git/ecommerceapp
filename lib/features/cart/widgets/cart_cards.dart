@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:ecommerceapp/constants/global_variables.dart';
 
 class CartCards extends StatefulWidget {
   final String title;
@@ -51,27 +50,25 @@ class _CartCardsState extends State<CartCards> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
                     child: Text(
                       widget.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     ),
                   ),
                 ),
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-                    child: Text(
-                      '\$ ${widget.price}',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
+                  child: Text(
+                    '\$ ${widget.price}',
+                    style: const TextStyle(
+                      fontSize: 16,
                     ),
                   ),
                 ),
@@ -90,7 +87,7 @@ class _CartCardsState extends State<CartCards> {
                             });
                           }
                         },
-                        icon: Icon(Icons.remove)),
+                        icon: const Icon(Icons.remove)),
                     Text(cartItem.toString()),
                     IconButton(
                         onPressed: () {
@@ -98,7 +95,7 @@ class _CartCardsState extends State<CartCards> {
                             cartItem++;
                           });
                         },
-                        icon: Icon(Icons.add))
+                        icon: const Icon(Icons.add))
                   ],
                 ),
               ),
