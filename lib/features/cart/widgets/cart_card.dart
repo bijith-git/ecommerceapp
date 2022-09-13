@@ -23,7 +23,7 @@ class CartCard extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all((10 / 375.0) * width),
               decoration: BoxDecoration(
-                color: Color(0xFFF5F6F9),
+                color: const Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.network(
@@ -31,20 +31,20 @@ class CartCard extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'watch',
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text.rich(
               TextSpan(
                 text: "\$ 2323",
-                style: TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 children: [
                   TextSpan(

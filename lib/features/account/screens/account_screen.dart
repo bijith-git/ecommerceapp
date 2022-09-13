@@ -14,7 +14,7 @@ class AccountScreen extends StatelessWidget {
         backgroundColor: GlobalVariables.primaryColor,
         title: const Text("Profile"),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }

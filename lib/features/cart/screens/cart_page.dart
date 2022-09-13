@@ -1,9 +1,6 @@
-import 'package:ecommerceapp/common/custom_button.dart';
 import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:ecommerceapp/features/cart/widgets/body.dart';
-import 'package:ecommerceapp/features/cart/widgets/cart_cards.dart';
 import 'package:ecommerceapp/features/cart/widgets/check_out_card.dart';
-import 'package:ecommerceapp/size_config.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
@@ -14,19 +11,13 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
   int cartItem = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
-      bottomNavigationBar: CheckoutCard(),
+      body: const Body(),
+      bottomNavigationBar: const CheckoutCard(),
     );
   }
 
@@ -34,12 +25,12 @@ class _CartPageState extends State<CartPage> {
     return AppBar(
       leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios_new_outlined, color: Colors.black)),
+          icon: const Icon(Icons.arrow_back_ios_new_outlined, color: Colors.black)),
       elevation: 0,
       backgroundColor: GlobalVariables.primaryColor,
       title: Column(
         children: [
-          Text(
+          const Text(
             "Your Cart",
             style: TextStyle(color: Colors.black),
           ),
