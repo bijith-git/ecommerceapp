@@ -20,7 +20,7 @@ class SpecialOffers extends StatelessWidget {
         ),
         SizedBox(height: (20 / 375.0) * width),
         SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [

@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -28,7 +29,9 @@ class SectionTitle extends StatelessWidget {
           onTap: press,
           child: const Text(
             "See More",
-            style: TextStyle(color: Color(0xFFBBBBBB)),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: GlobalVariables.primaryColor),
           ),
         ),
       ],

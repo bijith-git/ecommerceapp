@@ -168,7 +168,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 signInUser();
                               }
                             },
-                            text: "Sign Up"),
+                            text: "Sign In"),
                       ]),
                 ),
               if (_auth == Auth.signup)

@@ -1,19 +1,30 @@
+import 'package:ecommerceapp/features/auth/services/auth_services.dart';
+import 'package:ecommerceapp/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
-  const Body({super.key});
-
+  Body({super.key});
+  AuthService authService = AuthService();
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
           const ProfilePic(),
           const SizedBox(height: 20),
+          Text(
+            user.name.toUpperCase(),
+            style: const TextStyle(fontSize: 20, color: Colors.black),
+          ),
+          const SizedBox(height: 10),
           ProfileMenu(
             text: "My Account",
             icon: Icons.person_outlined,
@@ -37,7 +48,9 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: Icons.logout,
-            press: () {},
+            press: () {
+              authService.logout(context);
+            },
           ),
         ],
       ),

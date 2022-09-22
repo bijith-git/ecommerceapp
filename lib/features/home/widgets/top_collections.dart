@@ -9,9 +9,9 @@ class TopCollection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: const Text(
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Text(
             "Top Collections",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
           ),

@@ -4,7 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const authRouter = require("./routes/auth");
-
+const admin = require("./routes/admin");
+const productRouter = require("./routes/product");
 //port address
 const PORT = 3000;
 
@@ -17,6 +18,8 @@ const DB =
 //middleware
 app.use(express.json());
 app.use(authRouter);
+app.use(admin);
+app.use(productRouter);
 
 //creating  API
 app.listen(PORT, "0.0.0.0", () => {

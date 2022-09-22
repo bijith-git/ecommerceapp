@@ -1,7 +1,12 @@
+import 'package:ecommerceapp/features/home/screens/category_deals.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
+
+  void navigateCategory(String category, BuildContext context) {
+    Navigator.pushNamed(context, CategoryDeals.routeName, arguments: category);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +49,9 @@ class Categories extends StatelessWidget {
                     child: CategoryCard(
                       icon: categories[i]["icon"],
                       text: categories[i]["title"],
-                      press: () {},
+                      press: () {
+                        navigateCategory(categories[i]["title"], context);
+                      },
                     ),
                   );
                 }),

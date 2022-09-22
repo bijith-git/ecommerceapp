@@ -1,6 +1,5 @@
+import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
@@ -20,7 +19,8 @@ class ProfileMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          foregroundColor: kPrimaryColor, padding: const EdgeInsets.all(20),
+          foregroundColor: GlobalVariables.primaryColor,
+          padding: const EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           backgroundColor: const Color(0xFFF5F6F9),
@@ -30,7 +30,7 @@ class ProfileMenu extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: kPrimaryColor,
+              color: GlobalVariables.primaryColor,
             ),
             const SizedBox(width: 20),
             Expanded(child: Text(text)),

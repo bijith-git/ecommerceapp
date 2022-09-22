@@ -1,7 +1,7 @@
+import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 // import 'package:shopapp/models/Cart.dart';
 
-import '../../../constants.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({
@@ -45,7 +45,7 @@ class CartCard extends StatelessWidget {
               TextSpan(
                 text: "\$ 2323",
                 style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: kPrimaryColor),
+                    fontWeight: FontWeight.w600, color: GlobalVariables.primaryColor),
                 children: [
                   TextSpan(
                       text: " x${4}",

@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/common/bottom_nav_bar.dart';
 import 'package:ecommerceapp/constants/global_variables.dart';
+import 'package:ecommerceapp/features/admin/screens/admin_screens.dart';
 import 'package:ecommerceapp/features/auth/screens/auth_screens.dart';
 import 'package:ecommerceapp/features/auth/services/auth_services.dart';
 import 'package:ecommerceapp/providers/user_provider.dart';
@@ -34,11 +35,22 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         title: 'Ecommerce App',
         theme: ThemeData(
+          colorScheme: const ColorScheme.light(
+            primary: GlobalVariables.primaryColor,
+          ),
+          appBarTheme: const AppBarTheme(
+              titleTextStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20)),
+          useMaterial3: true,
           scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         ),
         onGenerateRoute: ((settings) => generateRoute(settings)),
         home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-            ? const BottomNavBar()
+            ? Provider.of<UserProvider>(context).user.type == 'user'
+                ? const BottomNavBar()
+                : const AdminScreen()
             : const AuthScreen());
   }
 }

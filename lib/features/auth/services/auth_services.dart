@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:ecommerceapp/common/bottom_nav_bar.dart';
@@ -21,14 +23,15 @@ class AuthService {
   }) async {
     try {
       User user = User(
-        id: '',
-        name: name,
-        password: password,
-        email: email,
-        address: '',
-        type: '',
-        token: '',
-      );
+          id: '',
+          name: name,
+          password: password,
+          email: email,
+          address: '',
+          type: '',
+          token: '',
+          cart: []
+          );
 
       http.Response res = await http.post(
         Uri.parse('$uri/api/signup'),
@@ -123,6 +126,33 @@ class AuthService {
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userRes.body);
       }
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+//logout user
+  Future logout(
+    BuildContext context,
+  ) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      http.Response res =
+          await http.get(Uri.parse('$uri/api/signout'), headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'x-auth-token': userProvider.user.token,
+      });
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          prefs.remove('x-auth-token');
+          userProvider.logutUser(userProvider.user);
+          Navigator.pushReplacementNamed(context, '/auth');
+        },
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }

@@ -1,7 +1,6 @@
+import 'package:ecommerceapp/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../constants.dart';
 
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({
@@ -55,7 +54,7 @@ class CheckoutCard extends StatelessWidget {
                 const Icon(
                   Icons.arrow_forward_ios,
                   size: 12,
-                  color: kTextColor,
+                  color: Colors.black,
                 )
               ],
             ),
@@ -111,7 +110,7 @@ class DefaultButton extends StatelessWidget {
           foregroundColor: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          backgroundColor: kPrimaryColor,
+          backgroundColor: GlobalVariables.primaryColor,
         ),
         onPressed: press as void Function()?,
         child: Text(
