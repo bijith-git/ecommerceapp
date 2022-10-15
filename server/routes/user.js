@@ -10,7 +10,6 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
     const { id } = req.body;
     const product = await Product.findById(id);
     let user = await User.findById(req.user);
-
     if (user.cart.length == 0) {
       user.cart.push({ product, quantity: 1 });
     } else {
@@ -20,7 +19,6 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
           isProductFound = true;
         }
       }
-
       if (isProductFound) {
         let producttt = user.cart.find((productt) =>
           productt.product._id.equals(product._id)
